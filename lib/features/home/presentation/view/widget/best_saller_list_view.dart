@@ -1,5 +1,6 @@
-import 'package:bookly/features/home/presentaion/view/widget/best_saller_list_view_item.dart';
 import 'package:flutter/material.dart';
+
+import 'best_saller_list_view_item.dart';
 
 class BestSallerListView extends StatelessWidget {
   const BestSallerListView({super.key});
