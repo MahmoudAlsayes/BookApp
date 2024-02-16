@@ -1,10 +1,7 @@
-import 'package:bookly/core/utils/styles.dart';
-import 'package:bookly/features/home/presentaion/view/widget/book_rating.dart';
-import 'package:bookly/features/home/presentaion/view/widget/custome_book_iteam.dart';
-import 'package:bookly/features/home/presentaion/view/widget/similar_book_list_view.dart';
+import 'package:bookly/features/home/presentaion/view/widget/similler_book_section.dart';
 import 'package:flutter/material.dart';
 
-import 'book_action.dart';
+import 'book_details_section.dart';
 import 'custome_book_details_app_bar.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -12,68 +9,26 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    return CustomScrollView(
+    return const CustomScrollView(
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            padding: EdgeInsets.symmetric(horizontal: 30.0),
             child: Column(
               children: [
-                const CustomeBookDetailsAppBar(),
-                const SizedBox(
+                CustomeBookDetailsAppBar(),
+                SizedBox(
                   height: 33,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: width * .21),
-                  child: const CustomeBookImage(),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                const Text("The Jungle Book",
-                    style: Styles.textStyle30,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis),
-                const SizedBox(
-                  height: 4,
-                ),
-                Opacity(
-                  opacity: 0.7,
-                  child: Text(
-                    "Rudyard Kipling",
-                    style: Styles.textStyle18.copyWith(
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 14,
-                ),
-                const BookRating(mainAxisAlignment: MainAxisAlignment.center),
-                const SizedBox(
-                  height: 37,
-                ),
-                const BookAction(),
-                const Expanded(
+                BookDetailsSection(),
+                Expanded(
                   child: SizedBox(
                     height: 49,
                   ),
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "You can also like",
-                    style: Styles.textStyle14.copyWith(fontWeight: FontWeight.w600),
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                const SimilarBooksListView(),
-                const SizedBox(
+                SimillerBookSection(),
+                SizedBox(
                   height: 40,
                 ),
               ],
@@ -82,6 +37,5 @@ class BookDetailsViewBody extends StatelessWidget {
         ),
       ],
     );
-
   }
 }
